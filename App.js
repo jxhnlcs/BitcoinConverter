@@ -37,7 +37,7 @@ function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bitcoin Converter</Text>
+      <Text style={styles.title}>Bitcoin conversor</Text>
       <TextInput
         style={styles.input}
         placeholder="Cotation"
@@ -68,10 +68,10 @@ function HomeScreen({ navigation }) {
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleClear}>
-          <Text style={styles.buttonText}>Clear</Text>
+          <Text style={styles.buttonText}>Limpar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleConvert}>
-          <Text style={styles.buttonText}>Convert</Text>
+          <Text style={styles.buttonText}>Ver cotação</Text>
         </TouchableOpacity>
       </View>
     </View>
