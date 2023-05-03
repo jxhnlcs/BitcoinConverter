@@ -10,8 +10,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Cotation" component={CotationScreen} />
+        <Stack.Screen name="Conversor" component={HomeScreen} />
+        <Stack.Screen name="Cotação" component={CotationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -28,7 +28,7 @@ function HomeScreen({ navigation }) {
   }
 
   const handleConvert = () => {
-    navigation.navigate('Cotation', { currency });
+    navigation.navigate('Cotação', { currency });
   }
 
   const handleCurrencyChange = (value) => {
@@ -40,14 +40,14 @@ function HomeScreen({ navigation }) {
       <Text style={styles.title}>Bitcoin conversor</Text>
       <TextInput
         style={styles.input}
-        placeholder="Cotation"
+        placeholder="Cotação"
         keyboardType="numeric"
         value={cotation}
         onChangeText={(value) => setCotation(value)}
       />
       <TextInput
         style={styles.input}
-        placeholder="Quantity"
+        placeholder="Quantitade"
         keyboardType="numeric"
         value={quantity}
         onChangeText={(value) => setQuantity(value)}
@@ -67,6 +67,10 @@ function HomeScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.button} /* Função converter onPress={} */>
+          <Text style={styles.buttonText}>Converter</Text>
+          <Text style={styles.result}>Resultado</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleClear}>
           <Text style={styles.buttonText}>Limpar</Text>
         </TouchableOpacity>
@@ -95,11 +99,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 32,
   },
+
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
@@ -107,6 +113,25 @@ const styles = StyleSheet.create({
     padding: 8,
     width: '80%',
     marginBottom: 16,
-  }
+  },
 
+  currencyContainer:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+
+  currencyButton:{
+    marginRight: 20,
+    marginLeft: 20,
+  },
+
+  buttonContainer:{
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  selectedCurrencyButtonText: {
+    color: 'purple'
+  }
 })
