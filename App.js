@@ -6,6 +6,8 @@ import { WebView } from 'react-native-webview';
 
 const Stack = createStackNavigator();
 
+/* Navbar */
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -22,20 +24,31 @@ function HomeScreen({ navigation }) {
   const [quantity, setQuantity] = useState('');
   const [currency, setCurrency] = useState('BRL');
 
+  /* Função limpar campos */
+
   const handleClear = () => {
     setCotation('');
     setQuantity('');
   }
 
+  /* Função moeda selecionada */
+
   const handleConvert = () => {
     navigation.navigate('Cotação', { currency });
   }
+
+  /* Função trocar moeda selecionada */
 
   const handleCurrencyChange = (value) => {
     setCurrency(value);
   }
 
+  /* Front-end */
+
   return (
+
+    /* Container dos inputs */
+
     <View style={styles.container}>
       <Text style={styles.title}>Bitcoin conversor</Text>
       <TextInput
@@ -52,7 +65,7 @@ function HomeScreen({ navigation }) {
         value={quantity}
         onChangeText={(value) => setQuantity(value)}
       />
-      <View style={styles.currencyContainer}>
+      <View style={styles.currencyContainer /* Container selecionar moedas */}>
         <TouchableOpacity
           style={[styles.currencyButton, currency === 'BRL' ? styles.selectedCurrencyButton : null]}
           onPress={() => handleCurrencyChange('BRL')}
@@ -66,7 +79,7 @@ function HomeScreen({ navigation }) {
           <Text style={[styles.currencyButtonText, currency === 'USD' ? styles.selectedCurrencyButtonText : null]}>USD</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer/* Container botões */}>
       <TouchableOpacity style={styles.button} /* Função converter onPress={} */>
           <Text style={styles.buttonText}>Converter</Text>
           <Text style={styles.result}>Resultado</Text>
@@ -82,6 +95,8 @@ function HomeScreen({ navigation }) {
   );
 }
 
+/* Função chama webview */
+
 function CotationScreen({ route }) {
   const { currency } = route.params;
 
@@ -91,6 +106,8 @@ function CotationScreen({ route }) {
     />
   );
 }
+
+/* Estilização */
 
 const styles = StyleSheet.create({
   container: {
