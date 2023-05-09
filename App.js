@@ -28,7 +28,7 @@ function HomeScreen({ navigation }) {
   /* Função converter */
 
   const handleConvert = () => {
-    if (setQuantity || setCotation) {
+    if (!cotation || !quantity) {
       setConversionResult('Informe os valores de cotação e quantidade');
       return;
     }
