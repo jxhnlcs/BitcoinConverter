@@ -23,17 +23,31 @@ function HomeScreen({ navigation }) {
   const [cotation, setCotation] = useState('');
   const [quantity, setQuantity] = useState('');
   const [currency, setCurrency] = useState('BRL');
+  const [conversionResult, setConversionResult] = useState('');
+
+  /* Função converter */
+
+  const handleConvert = () => {
+    if (setCurrency === 'real') {
+      const result = parseFloat(quantity) * parseFloat(cotation);
+      setConversionResult(result.toFixed(2));
+    } else {
+      const result = parseFloat(quantity) * (parseFloat(cotation));
+      setConversionResult(result.toFixed(2));
+    }
+  };
 
   /* Função limpar campos */
 
   const handleClear = () => {
     setCotation('');
     setQuantity('');
+    setConversionResult('');
   }
 
   /* Função moeda selecionada */
 
-  const handleConvert = () => {
+  const handleCotation = () => {
     navigation.navigate('Cotação', { currency });
   }
 
@@ -80,14 +94,14 @@ function HomeScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={styles.buttonContainer/* Container botões */}>
-      <TouchableOpacity style={styles.button} /* Função converter onPress={} */>
+      <TouchableOpacity style={styles.button} Função converter onPress={handleConvert}>
           <Text style={styles.buttonText}>Converter</Text>
-          <Text style={styles.result}>Resultado</Text>
         </TouchableOpacity>
+        <Text style={styles.result}>{conversionResult}</Text>
         <TouchableOpacity style={styles.button} onPress={handleClear}>
           <Text style={styles.buttonText}>Limpar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleConvert}>
+        <TouchableOpacity style={styles.button} onPress={handleCotation}>
           <Text style={styles.buttonText}>Ver cotação</Text>
         </TouchableOpacity>
       </View>
