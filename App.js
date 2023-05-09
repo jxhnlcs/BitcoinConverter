@@ -28,6 +28,10 @@ function HomeScreen({ navigation }) {
   /* Função converter */
 
   const handleConvert = () => {
+    if (setQuantity || setCotation) {
+      setConversionResult('Informe os valores de cotação e quantidade');
+      return;
+    }
     if (setCurrency === 'BRL') {
       const result = parseFloat(quantity) * parseFloat(cotation);
       setConversionResult(result.toFixed(2));
