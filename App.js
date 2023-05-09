@@ -28,7 +28,7 @@ function HomeScreen({ navigation }) {
   /* Função converter */
 
   const handleConvert = () => {
-    if (setCurrency === 'real') {
+    if (setCurrency === 'BRL') {
       const result = parseFloat(quantity) * parseFloat(cotation);
       setConversionResult(result.toFixed(2));
     } else {
@@ -116,7 +116,7 @@ function CotationScreen({ route }) {
 
   return (
     <WebView
-      source={{ uri: currency === 'BRL' ? 'https://www.coinbase.com/pt/converter/btc/brl' : 'https://www.infomoney.com.br/cotacoes/cripto/ativo/bitcoin-btc/' }}
+      source={{ uri: currency === 'BRL' ? 'https://www.coinbase.com/pt/converter/btc/brl' : 'https://www.coinbase.com/pt/converter/btc/usd' }}
     />
   );
 }
