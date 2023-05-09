@@ -141,15 +141,6 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
 
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
-    padding: 8,
-    width: '80%',
-    marginBottom: 16,
-  },
-
   currencyContainer:{
     justifyContent: 'center',
     alignItems: 'center',
