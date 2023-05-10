@@ -101,12 +101,15 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.button} Função converter onPress={handleConvert}>
           <Text style={styles.buttonText}>Converter</Text>
         </TouchableOpacity>
-        <Text style={styles.result}>{conversionResult}</Text>
-        <TouchableOpacity style={styles.button} onPress={handleClear}>
-          <Text style={styles.buttonText}>Limpar</Text>
-        </TouchableOpacity>
+        
         <TouchableOpacity style={styles.button} onPress={handleCotation}>
           <Text style={styles.buttonText}>Ver cotação</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+      <Text style={styles.result}>{conversionResult}</Text>
+        <TouchableOpacity style={styles.button} onPress={handleClear}>
+          <Text style={styles.buttonText2}>Limpar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -130,13 +133,14 @@ function CotationScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   title: {
     fontSize: 32,
+    color: 'white',
     fontWeight: 'bold',
     marginBottom: 32,
   },
@@ -144,20 +148,63 @@ const styles = StyleSheet.create({
   currencyContainer:{
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    
   },
 
-  currencyButton:{
+  currencyButtonText:{
     marginRight: 20,
     marginLeft: 20,
-  },
+    color: 'white',
+    marginTop: 20,
+    
+  }, 
 
   buttonContainer:{
     justifyContent: 'center',
     alignItems: 'center',
   },
 
+
   selectedCurrencyButtonText: {
-    color: 'purple'
-  }
+    color: 'green',
+  },
+
+  buttonText: {
+    color: 'white',
+    backgroundColor: 'green',
+    borderRadius: 5,
+    padding: 8,
+    marginLeft: 20,
+    marginRight: 10,
+    marginTop: 20,
+
+  },
+
+  buttonText2:{
+    color: 'white',
+    alignItems: 'center'
+  },
+
+  buttonContainer:{
+    flexDirection: 'row',
+  },
+
+  result: {
+    color:'green'
+  },
+
+  input:{
+    color:'red',
+    textAlign: 'center',
+    borderBottomWidth: 1,
+    color: 'white',
+    borderBottomColor: 'white',
+    marginTop: 10,
+    marginBottom:15,
+    fontSize: 25,
+    borderRadius: 1,
+    height: 30,
+    width: 150,
+  },
 })
