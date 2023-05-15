@@ -122,7 +122,7 @@ function HomeScreen({ navigation }) {
         onChangeText={(value) => setQuantity(value)}
         placeholderTextColor="#C6C4C4"
       />
-      <Text style={styles.result /* Container dos inputs */}>{conversionResult}</Text>
+      <Text style={styles.result}>{conversionResult}</Text>
       </View>
       
       <View style={styles.buttonConverter /*Botão converter*/}>
@@ -137,24 +137,9 @@ function HomeScreen({ navigation }) {
             </TouchableOpacity>
           </View>
             <TouchableOpacity style={styles.buttonLimpar} onPress={handleClear}>
-              <Text style={styles.buttonText}>Limpar</Text>
+              <Text style={styles.buttonText2}>Limpar</Text>
             </TouchableOpacity>
         </View>
-      <View style={styles.buttonContainer/* Container botões */}>
-      <TouchableOpacity style={styles.button} Função converter onPress={handleConvert}>
-          <Text style={styles.buttonText}>Converter</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.button} onPress={handleCotation}>
-          <Text style={styles.buttonText}>Ver cotação</Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-      <Text style={styles.result}>{conversionResult}</Text>
-        <TouchableOpacity style={styles.button} onPress={handleClear}>
-          <Text style={styles.buttonText2}>Limpar</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
@@ -186,14 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 30
   },
-
-  currencyButtonText:{
-    marginRight: 20,
-    marginLeft: 20,
-    color: 'white',
-    fontSize: 30, 
-    alignItems: 'center',
-  },
+  
   title: {
     fontSize: 32,
     color: 'white',
@@ -204,24 +182,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    marginTop: 30,
     backgroundColor: '#3D3B3B',
     paddingHorizontal: 20,
+    paddingVertical: 10,
     borderRadius: 5,
     marginTop: 100
   },
 
   containerInput: {
     backgroundColor: '#3D3B3B',
-
-    
+    paddingVertical: 20,
+    paddingHorizontal: 40,
+    borderRadius: 20,
+    marginTop: 10,
   },
 
   currencyButtonText:{
     marginRight: 20,
     marginLeft: 20,
     color: 'white',
-    marginTop: 20,
+    fontSize: 20
     
   }, 
 
@@ -250,16 +230,13 @@ const styles = StyleSheet.create({
 
   buttonConverter:{
     color: 'white',
-    borderRadius: 4,
     backgroundColor:'green',
     paddingHorizontal: 30,
     paddingVertical: 3,
     fontSize:20,
-    textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
     fontWeight: 'bold',
     borderRadius: 6,
+
   },
   result: {
     color: '#00A624',
@@ -291,34 +268,13 @@ const styles = StyleSheet.create({
     top: 648,
   },
 
-  
-
   selectedCurrencyButtonText: {
     color: 'green',
   },
 
-  buttonText: {
-    color: 'white',
-    backgroundColor: 'green',
-    borderRadius: 5,
-    padding: 8,
-    marginLeft: 20,
-    marginRight: 10,
-    marginTop: 20,
-
-  },
-
   buttonText2:{
     color: 'white',
-    alignItems: 'center'
-  },
-
-  buttonContainer:{
-    flexDirection: 'row',
-  },
-
-  result: {
-    color:'green'
+    fontSize: 20
   },
 
   input:{
