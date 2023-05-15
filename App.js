@@ -12,8 +12,28 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Conversor" component={HomeScreen} />
-        <Stack.Screen name="Cotação" component={CotationScreen} />
+        <Stack.Screen name="Conversor" component={HomeScreen} 
+        options={{
+          title: 'Bitcoin Conversor',
+          headerStyle: {
+            backgroundColor: 'green',
+            
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}/>
+        <Stack.Screen style={styles.nav}  name="Cotação" component={CotationScreen }
+        options={{
+          headerStyle: {
+            backgroundColor: 'green',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -41,7 +61,7 @@ function HomeScreen({ navigation }) {
     }
   };
 
-  /* Função limpar campos */
+  /* Função limpar campos*/
 
   const handleClear = () => {
     setCotation('');
@@ -68,21 +88,7 @@ function HomeScreen({ navigation }) {
     /* Container dos inputs */
 
     <View style={styles.container}>
-      <Text style={styles.title}>Bitcoin conversor</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Cotação"
-        keyboardType="numeric"
-        value={cotation}
-        onChangeText={(value) => setCotation(value)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Quantitade"
-        keyboardType="numeric"
-        value={quantity}
-        onChangeText={(value) => setQuantity(value)}
-      />
+      
       <View style={styles.currencyContainer /* Container selecionar moedas */}>
         <TouchableOpacity
           style={[styles.currencyButton, currency === 'BRL' ? styles.selectedCurrencyButton : null]}
@@ -97,18 +103,43 @@ function HomeScreen({ navigation }) {
           <Text style={[styles.currencyButtonText, currency === 'USD' ? styles.selectedCurrencyButtonText : null]}>USD</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.buttonContainer/* Container botões */}>
-      <TouchableOpacity style={styles.button} Função converter onPress={handleConvert}>
-          <Text style={styles.buttonText}>Converter</Text>
-        </TouchableOpacity>
-        <Text style={styles.result}>{conversionResult}</Text>
-        <TouchableOpacity style={styles.button} onPress={handleClear}>
-          <Text style={styles.buttonText}>Limpar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleCotation}>
-          <Text style={styles.buttonText}>Ver cotação</Text>
+      
+      <View style={styles.containerInput /* Container input */}>
+      <TextInput
+        style={styles.input}
+        placeholder="Cotação"
+        keyboardType="numeric"
+        value={cotation}
+        onChangeText={(value) => setCotation(value)}
+        placeholderTextColor="#C6C4C4"
+      />
+      
+      <TextInput
+        style={styles.input}
+        placeholder="Quantidade"
+        keyboardType="numeric"
+        value={quantity}
+        onChangeText={(value) => setQuantity(value)}
+        placeholderTextColor="#C6C4C4"
+      />
+      <Text style={styles.result /* Container dos inputs */}>{conversionResult}</Text>
+      </View>
+      
+      <View style={styles.buttonConverter /*Botão converter*/}>
+        <TouchableOpacity style={styles.buttonConverter} Função converter onPress={handleConvert}>
+          <Text style={styles.buttonConverter}>Converter</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.barContainer}>
+        <View style={styles.button/* Container botões */}>
+            <TouchableOpacity style={styles.buttonCotacao} onPress={handleCotation}>
+              <Text style={styles.buttonText}>Ver cotação</Text>
+            </TouchableOpacity>
+          </View>
+            <TouchableOpacity style={styles.buttonLimpar} onPress={handleClear}>
+              <Text style={styles.buttonText}>Limpar</Text>
+            </TouchableOpacity>
+        </View>
     </View>
   );
 }
@@ -130,34 +161,101 @@ function CotationScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#262626',
     alignItems: 'center',
-    justifyContent: 'center',
+    /*justifyContent: 'center'*/
   },
 
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 32,
+  selectedCurrencyButtonText: {
+    color: '#00A624',
+    alignItems: 'center',
+    fontSize: 30
+  },
+
+  currencyButtonText:{
+    marginRight: 20,
+    marginLeft: 20,
+    color: 'white',
+    fontSize: 30, 
+    alignItems: 'center',
   },
 
   currencyContainer:{
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: 30,
+    backgroundColor: '#3D3B3B',
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginTop: 100
   },
 
-  currencyButton:{
-    marginRight: 20,
-    marginLeft: 20,
-  },
-
-  buttonContainer:{
-    justifyContent: 'center',
+  containerInput: {
+    backgroundColor: '#3D3B3B',
     alignItems: 'center',
+    padding: 20,
+    borderRadius: 8,
+    height: 180,
+    marginTop:20,
+    marginBottom: 30,
+  },  
+
+  input: {
+    color: 'white',
+    borderRadius: 1,
+    backgroundColor:'#262626',
+    width: 320,
+    height:40,
+    fontSize:20,
+    textAlign: 'center',
+    borderRadius: 6,
+    marginTop: 20,
+  },
+  
+
+  buttonConverter:{
+    color: 'white',
+    borderRadius: 4,
+    backgroundColor:'green',
+    paddingHorizontal: 30,
+    paddingVertical: 3,
+    fontSize:20,
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    fontWeight: 'bold',
+    borderRadius: 6,
+  },
+  result: {
+    color: '#00A624',
+    fontSize: 15,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 10
+  },
+  buttonCotacao:{
+    backgroundColor: '#099F2A',
+    paddingHorizontal: 50,
+    paddingVertical: 20
   },
 
-  selectedCurrencyButtonText: {
-    color: 'purple'
+  buttonLimpar:{
+    backgroundColor: '#006C18',
+    paddingHorizontal: 65,
+    paddingVertical: 20,
+  },
+
+  buttonText:{
+    color: 'white',
+    fontSize: 20,
+  },
+
+  barContainer: {
+    flexDirection: 'row',
+    position: 'absolute',
+    top: 648,
   }
+
+  
 })
