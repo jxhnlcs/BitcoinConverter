@@ -125,7 +125,7 @@ function HomeScreen({ navigation }) {
       <Text style={styles.result}>{conversionResult}</Text>
       </View>
       
-      <View style={styles.buttonConverter /*Botão converter*/}>
+      <View style={styles.buttonConverterContainer /*Botão converter*/}>
         <TouchableOpacity style={styles.buttonConverter} Função converter onPress={handleConvert}>
           <Text style={styles.buttonConverter}>Converter</Text>
         </TouchableOpacity>
@@ -133,11 +133,11 @@ function HomeScreen({ navigation }) {
       <View style={styles.barContainer}>
         <View style={styles.button/* Container botões */}>
             <TouchableOpacity style={styles.buttonCotacao} onPress={handleCotation}>
-              <Text style={styles.buttonText}>Ver cotação</Text>
+              <Text style={styles.buttonTextCotacao}>Ver cotação</Text>
             </TouchableOpacity>
           </View>
             <TouchableOpacity style={styles.buttonLimpar} onPress={handleClear}>
-              <Text style={styles.buttonText2}>Limpar</Text>
+              <Text style={styles.buttonTextLimpar}>Limpar</Text>
             </TouchableOpacity>
         </View>
     </View>
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   containerInput: {
     backgroundColor: '#3D3B3B',
     paddingVertical: 20,
-    paddingHorizontal: 40,
+    paddingHorizontal: 20,
     borderRadius: 20,
     marginTop: 10,
   },
@@ -205,16 +205,6 @@ const styles = StyleSheet.create({
     
   }, 
 
-  buttonContainer:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    borderRadius: 8,
-    height: 180,
-    marginTop:20,
-    marginBottom: 30,
-  },  
-
   input: {
     color: 'white',
     borderRadius: 1,
@@ -226,13 +216,16 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     marginTop: 20,
   },
-  
 
+  buttonConverterContainer:{
+    marginTop: 20
+  },
+  
   buttonConverter:{
     color: 'white',
     backgroundColor:'green',
     paddingHorizontal: 30,
-    paddingVertical: 3,
+    paddingVertical: 5,
     fontSize:20,
     fontWeight: 'bold',
     borderRadius: 6,
@@ -257,9 +250,10 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
 
-  buttonText:{
+  buttonTextCotacao:{
     color: 'white',
     fontSize: 20,
+    fontWeight: 'bold'
   },
 
   barContainer: {
@@ -272,22 +266,10 @@ const styles = StyleSheet.create({
     color: 'green',
   },
 
-  buttonText2:{
+  buttonTextLimpar:{
     color: 'white',
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: 'bold'
   },
 
-  input:{
-    color:'red',
-    textAlign: 'center',
-    borderBottomWidth: 1,
-    color: 'white',
-    borderBottomColor: 'white',
-    marginTop: 10,
-    marginBottom:15,
-    fontSize: 25,
-    borderRadius: 1,
-    height: 30,
-    width: 150,
-  },
 })
