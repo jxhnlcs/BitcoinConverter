@@ -1,5 +1,5 @@
 # BitcoinConverter
-An application that makes the direct conversion of bitcoin to real(R$) or dollar($), depending on the user's choice
+An application that takes two dates and calculates the difference between them in days
 
 # Technologies
 
