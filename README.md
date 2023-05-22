@@ -3,12 +3,11 @@ An application that makes the direct conversion of bitcoin to real(R$) or dollar
 
 ##### 📱:App
 
-To run the app, just run the commands below in the terminal:
+To run the app, just run the commands below in the terminal for install all dependencies:
 
 ```shell
 npm install expo
 ```
-
 
 ```shell
 npm install @react-navigation/native
