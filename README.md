@@ -9,6 +9,19 @@ To run the app, just run the commands below in the terminal:
 npm install expo
 ```
 
+
+```shell
+npm install @react-navigation/native
+```
+
+```shell
+npm install @react-navigation/native-stack
+```
+
+```shell
+npm i react-native-webview
+```
+
 ```shell
 npm install
 ```
